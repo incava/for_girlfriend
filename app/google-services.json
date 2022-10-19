@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "877296924045",
+    "project_id": "for-girlfriend",
+    "storage_bucket": "for-girlfriend.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877296924045:android:1ab06a760cab3ff97979c4",
+        "android_client_info": {
+          "package_name": "com.example.for_girlfriend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877296924045-81qbvato9rh5rg2rqkubiofnj06chp3t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9p25tpan2AZNHxfJGolRGQslUwaO27ww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "877296924045-81qbvato9rh5rg2rqkubiofnj06chp3t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
