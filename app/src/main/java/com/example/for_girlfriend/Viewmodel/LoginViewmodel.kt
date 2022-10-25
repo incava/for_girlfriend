@@ -20,7 +20,11 @@ class LoginViewmodel : ViewModel(){
     fun isSignUp(id:String, pass:String):Boolean{
         Log.d("id",id)
         Log.d("pass",pass)
-        return loginCheck.isLoginRepo(id, pass)
+        return loginCheck.isSignUpRepo(id, pass)
+    }
+    fun passChk(pass1:String,pass2:String):Boolean{
+        Log.d("chk","${pass1==pass2}")
+        return pass1==pass2
     }
 
 }

@@ -33,7 +33,7 @@ class LoginCheck{
     private fun updateUI(userID: String?){
         _getUser.value = userID
     }
-    fun signUp(email: String, password:String):Boolean{
+    fun isSignUpRepo(email: String, password:String):Boolean{
         var flag = false
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener{ task ->
@@ -47,5 +47,4 @@ class LoginCheck{
             }
         return flag
     }
-
 }
