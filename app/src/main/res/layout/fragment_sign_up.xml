@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
+    <data>
+
+        <variable
+            name="SignupVM"
+            type="com.example.for_girlfriend.viewmodel.SignupViewmodel" />
+
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Login.SignUpFragment"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-13dp">
-
+        tools:context=".login.SignUpFragment">
 
         <EditText
             android:id="@+id/et_name"
@@ -19,6 +24,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="이름"
+            android:text="@={SignupVM.name}"
             app:layout_constraintBottom_toTopOf="@+id/btn_cal"
             app:layout_constraintEnd_toEndOf="@+id/textView3"
             app:layout_constraintStart_toStartOf="@+id/textView3"
@@ -44,24 +50,25 @@
             android:layout_height="wrap_content"
             android:ems="15"
             android:inputType="textEmailAddress"
+            android:text="@={SignupVM.email}"
             app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
             app:layout_constraintEnd_toEndOf="@+id/btn_cal"
             app:layout_constraintStart_toStartOf="@+id/btn_cal"
             app:layout_constraintTop_toBottomOf="@+id/btn_cal" />
 
+
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="20dp"
             android:text="회원가입"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/et_name"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-
 
         <TextView
             android:id="@+id/tv_birth"
@@ -79,7 +86,7 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:elevation="2dp"
-            android:text="생년월일"
+            android:text="@={SignupVM.birth}"
             app:layout_constraintBottom_toTopOf="@+id/et_Email"
             app:layout_constraintEnd_toEndOf="@+id/et_name"
             app:layout_constraintStart_toStartOf="@+id/et_name"
@@ -112,6 +119,7 @@
             android:layout_height="wrap_content"
             android:ems="15"
             android:inputType="textPassword"
+            android:text="@={SignupVM.pass}"
             app:layout_constraintBottom_toTopOf="@+id/et_passCheck"
             app:layout_constraintEnd_toEndOf="@+id/et_Email"
             app:layout_constraintStart_toStartOf="@+id/et_Email"
@@ -133,6 +141,7 @@
             android:layout_height="wrap_content"
             android:ems="15"
             android:inputType="textPassword"
+            android:text="@={SignupVM.cFpass}"
             app:layout_constraintBottom_toTopOf="@+id/btn_signup"
             app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
             app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"

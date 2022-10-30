@@ -1,11 +1,6 @@
-package com.example.for_girlfriend.Menu
+package com.example.for_girlfriend.menu
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.example.for_girlfriend.Base.BaseFragment
+import com.example.for_girlfriend.base.BaseFragment
 import com.example.for_girlfriend.R
 import com.example.for_girlfriend.databinding.FragmentHomeBinding
 

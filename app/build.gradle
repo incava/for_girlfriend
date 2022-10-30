@@ -40,7 +40,7 @@ android {
 dependencies {
     implementation 'androidx.annotation:annotation:1.2.0'
     def lifecycle_versionName = "2.5.1"
-    //Viewmodel
+    //viewmodel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_versionName"
     //livedata
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_versionName"
