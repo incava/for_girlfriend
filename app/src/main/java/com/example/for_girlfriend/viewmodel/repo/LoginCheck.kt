@@ -8,11 +8,13 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.asTask
+import kotlin.coroutines.resume
 
 class LoginCheck{
     val mAuth = Firebase.auth
     private val _getUser = MutableLiveData<String?>()
     val getUser: LiveData<String?> get() = _getUser
+
     fun isLoginRepo(email: String, password: String):Boolean{
         var result = false
             mAuth.signInWithEmailAndPassword(email, password)
@@ -32,25 +34,18 @@ class LoginCheck{
 
     private fun updateUI(userID: String?){
         _getUser.value = userID
+        //todo 추후에 회원 탈퇴해도 로그인 되는 문제 해결 해야함.
     }
 
-    fun isSignUpRepo(email: String, password:String): Boolean {
-            var flags = false
-                mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            Log.d(TAG, "createUserWithEmail:success")
-                            flags = true
-                        } else {
-                            Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                        }
-                    }
-        return flags
-        //todo 비동기를 동기로 리턴해야함.
+    suspend fun isSignUpRepo(email: String, password:String): Boolean = suspendCancellableCoroutine<Boolean> { cont ->
+        mAuth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                cont.resume(task.isSuccessful)
+            }
     }
 
 
-    fun signIsNull(name:String?,email:String?,pass:String?,birth:String?,cFpass:String?):Boolean{
+    suspend fun signIsNull(name:String?,email:String?,pass:String?,birth:String?,cFpass:String?):Boolean{
         Log.d("cFpass!=pass","${(cFpass!=pass)}")
     return if (name.isNullOrBlank() || email.isNullOrBlank() || pass.isNullOrBlank() || birth.isNullOrBlank() || cFpass.isNullOrBlank() || cFpass!=pass)
         false

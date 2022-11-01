@@ -64,14 +64,13 @@
         android:id="@+id/btn_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="로그인"
+        android:layout_marginTop="16dp"
         android:onClick="@{()->loginViewmodel.isLogin()}"
+        android:text="로그인"
         app:layout_constraintEnd_toEndOf="@+id/et_password"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/et_password"
-        app:layout_constraintTop_toBottomOf="@+id/et_password"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_sign_Up"
