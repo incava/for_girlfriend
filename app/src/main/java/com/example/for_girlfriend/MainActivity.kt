@@ -16,10 +16,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Log.d("currentUser",currentUser.toString())
-        if (currentUser!=null){
-            Log.d("실행중","실행중")
-            goHome()
-        }
+//        if (currentUser!=null){
+//            Log.d("실행중","실행중")
+//            goHome()
+//        }
     }
      fun goHome(){
         val intent = Intent(this,HomeActivity::class.java)

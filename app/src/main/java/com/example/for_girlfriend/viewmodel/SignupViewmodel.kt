@@ -24,11 +24,10 @@ class SignupViewmodel : ViewModel() {
                 val birth = this@SignupViewmodel.birth.value
                 val cFpass = this@SignupViewmodel.cFpass.value
                 Log.d("check", "$name $id $password $birth $cFpass")
-                        //val signUpChk = MutableLiveData<Boolean>() 위에 선언되어있음.
-                        signUpChk.value = withContext(Dispatchers.IO){ //여기를 io로 하면안됨... 이유가 무엇일까?
+                signUpChk.value = withContext(Dispatchers.Main){
                         val a = loginRepo.signIsNull(name, birth, id, password, cFpass)
                         if (a) loginRepo.updateInfo(name!!,id!!,birth!!)
-                        else a
+                        else false
                 }?:false //이건 livedata boolean 버그이슈
         }
 }

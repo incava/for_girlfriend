@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.for_girlfriend.MainActivity
 import com.example.for_girlfriend.base.BaseFragment
 import com.example.for_girlfriend.R
 import com.example.for_girlfriend.viewmodel.LoginViewmodel
@@ -28,7 +29,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 }
     private fun setupObserver(){
         loginVM.loginChk.observe(viewLifecycleOwner) {
-            if (it) findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
+            if (it) (activity as MainActivity).goHome()
             else {
                 Toast.makeText(this.context, "등록이 실패하였습니다.", Toast.LENGTH_SHORT)
             }
