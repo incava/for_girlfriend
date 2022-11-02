@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.for_girlfriend.viewmodel.repo.LoginCheck
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class LoginViewmodel : ViewModel(){
     private val loginRepo = LoginCheck()
@@ -11,12 +13,11 @@ class LoginViewmodel : ViewModel(){
     val emailChk = MutableLiveData<String>()
     val passChk = MutableLiveData<String>()
 
-    fun isLogin(){
+    suspend fun isLogin() {
         var id = emailChk.value
         var pass = passChk.value
-        Log.d("id,pass","$id $pass")
-        loginChk.value = loginRepo.loginIsNull(id,pass)
-        Log.d("id,pass","${loginChk.value.toString()}")
+        loginChk.value = withContext(Dispatchers.IO) {
+            loginRepo.loginIsNull(id, pass)
+        }?:false
     }
-
 }

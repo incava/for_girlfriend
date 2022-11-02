@@ -9,10 +9,6 @@
             name="loginViewmodel"
             type="com.example.for_girlfriend.viewmodel.LoginViewmodel" />
 
-        <variable
-            name="logiinFg"
-            type="com.example.for_girlfriend.login.LoginFragment" />
-
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -66,7 +62,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="로그인"
-        android:onClick="@{()->loginViewmodel.isLogin()}"
         app:layout_constraintEnd_toEndOf="@+id/et_password"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="@+id/et_password"
@@ -115,5 +110,29 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btn_findId"
         app:layout_constraintTop_toTopOf="@+id/btn_sign_Up" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/pb_login"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.425" />
+
+    <TextView
+        android:id="@+id/tv_pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Loading.."
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/pb_login"
+        app:layout_constraintStart_toStartOf="@+id/pb_login"
+        app:layout_constraintTop_toBottomOf="@+id/pb_login" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

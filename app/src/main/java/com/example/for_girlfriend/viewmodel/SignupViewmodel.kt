@@ -5,10 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.for_girlfriend.viewmodel.repo.LoginCheck
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 
 class SignupViewmodel : ViewModel() {
 
@@ -20,13 +17,15 @@ class SignupViewmodel : ViewModel() {
         val birth = MutableLiveData("선택하세요")
         val cFpass = MutableLiveData("")
 
-        fun isSignUp() {
-                val name = this.name.value
+        suspend fun isSignUp() {
+                val name = this@SignupViewmodel.name.value
                 val id = email.value
                 val password = pass.value
-                val birth = this.birth.value
-                val cFpass = this.cFpass.value
+                val birth = this@SignupViewmodel.birth.value
+                val cFpass = this@SignupViewmodel.cFpass.value
                 Log.d("check", "$name $id $password $birth $cFpass")
-                signUpChk.value = loginRepo.signIsNull(name, id, password, birth, cFpass)
+                signUpChk.value = withContext(Dispatchers.IO){
+                        loginRepo.signIsNull(name, birth, id, password, cFpass)
+                }?:false //이건 livedata boolean 버그이슈
         }
 }
