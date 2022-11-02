@@ -15,13 +15,13 @@ class LoginCheck{
     private val _getUser = MutableLiveData<String?>()
     val getUser: LiveData<String?> get() = _getUser
     private suspend fun isLoginRepo(email: String, password: String):Boolean = suspendCancellableCoroutine{ cont->
-            mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                        Log.d(TAG, "$task")
-                        val user = mAuth.currentUser.toString()
-                        cont.resume(task.isSuccessful)
-                        updateUI(user)
-                }
+        mAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                Log.d(TAG, "$task")
+                val user = mAuth.currentUser.toString()
+                cont.resume(task.isSuccessful)
+                updateUI(user)
+            }
     }
 
     private fun updateUI(userID: String?){

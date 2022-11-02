@@ -9,6 +9,10 @@
             name="loginViewmodel"
             type="com.example.for_girlfriend.viewmodel.LoginViewmodel" />
 
+        <variable
+            name="logiinFg"
+            type="com.example.for_girlfriend.login.LoginFragment" />
+
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
