@@ -11,6 +11,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.fragment.findNavController
 import com.example.for_girlfriend.base.BaseFragment
 import com.example.for_girlfriend.R
@@ -23,7 +24,7 @@ import java.util.*
 
 
 class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sign_up) {
-    private val signUpVm :SignupViewmodel by activityViewModels()
+    private val signUpVm :SignupViewmodel by viewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.signupVM = signUpVm
