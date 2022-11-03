@@ -6,9 +6,6 @@ import com.example.for_girlfriend.databinding.FragmentHomeBinding
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
-//    override fun init() {
-//        TODO("Not yet implemented")
-//    }
 
 
 }
