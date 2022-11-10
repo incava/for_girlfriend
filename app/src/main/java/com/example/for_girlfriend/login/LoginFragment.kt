@@ -1,6 +1,7 @@
 package com.example.for_girlfriend.login
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -11,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import com.example.for_girlfriend.HomeActivity
 import com.example.for_girlfriend.MainActivity
 import com.example.for_girlfriend.base.BaseFragment
 import com.example.for_girlfriend.R
@@ -48,7 +50,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 }
     private fun setupObserver(){
         loginVM.loginChk.observe(viewLifecycleOwner) {
-            if (it) (activity as MainActivity).goHome()
+            if (it) {
+                val intent = Intent(activity, HomeActivity::class.java)
+                startActivity(intent)
+            }//(activity as MainActivity).goHome()
             else {
                 Toast.makeText(this.context, "등록이 실패하였습니다.", Toast.LENGTH_SHORT)
             }

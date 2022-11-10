@@ -17,10 +17,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Log.d("currentUser",currentUser.toString())
-        if (currentUser!=null){
-            Log.d("실행중","실행중")
-            goHome()
-        }
+//        if (currentUser!=null){
+//            Log.d("실행중","실행중")
+//            goHome()
+//        }
     }
 
 //    override fun finish() { // 다 죽일 필요는 없다 본다. 그래서 남겨둔다. 언젠간 쓸지도.
