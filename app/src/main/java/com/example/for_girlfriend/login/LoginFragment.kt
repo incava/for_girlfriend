@@ -65,18 +65,18 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
         }
         binding.btnLogin.setOnClickListener{
-            binding.pbLogin.visibility = View.VISIBLE
-            binding.tvPb.visibility = View.VISIBLE
             viewLifecycleOwner.lifecycleScope.launch {
+                binding.pbLogin.visibility = View.VISIBLE
+                binding.tvPb.visibility = View.VISIBLE
                 val timeRequest = withTimeoutOrNull(10000) {
                         loginVM.isLogin()
                 }
                 if (timeRequest == null){
                     Toast.makeText(requireContext(),"네트워크 상태가 좋지 않습니다. 데이터 연결을 확인해 주세요.",Toast.LENGTH_SHORT).show()
                 }
+                binding.pbLogin.visibility = View.INVISIBLE
+                binding.tvPb.visibility = View.INVISIBLE
             }
-            binding.pbLogin.visibility = View.INVISIBLE
-            binding.tvPb.visibility = View.INVISIBLE
         }
     }
 
